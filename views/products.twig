@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ table }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+    <h3>{{ title }}</h3>
+    <a href="/products/insertData" class="btn btn-success">Insert DATA</a><br>
+        <br><table class="table table-bordered" align="center">
+            <thead>
+              <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for data in products %}
+                    <tr>
+                        <td>{{ data.ID }}</td>
+                        <td>{{ data.Name }}</td>
+                        <td>{{ data.Weight }}</td>
+                        <td>{{ data.Price }}</td>
+                        <td>{{ data.Quantity }}</td>
+                        <td>
+                          <a href="/products/updateData/{{ data.ID }}" class="btn btn-info btn-sm">EDIT</a>
+                          <a href="/products/deleteData/{{ data.ID }}" class="btn btn-danger btn-sm">DELETE</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>
